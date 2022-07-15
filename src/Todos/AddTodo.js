@@ -2,14 +2,19 @@ import React from "react";
 import { toast } from "react-toastify";
 
 class AddTodo extends React.Component {
-  state = {
-    title: "",
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: "",
+    };
+  }
+
   handleOnChangeTitle = (event) => {
     this.setState({
       title: event.target.value,
     });
   };
+
   handleAddTodo = () => {
     if (!this.state.title) {
       toast.error("missing title");
@@ -24,6 +29,7 @@ class AddTodo extends React.Component {
       title: "",
     });
   };
+
   render() {
     let { title } = this.state;
     return (

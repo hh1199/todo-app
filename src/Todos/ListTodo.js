@@ -4,14 +4,25 @@ import { toast } from "react-toastify";
 import "./ListTodo.css";
 
 class ListTodo extends React.Component {
-  state = {
-    listTodos: [
-      { id: "todo1", title: "Doing A" },
-      { id: "todo2", title: "Doing B" },
-      { id: "todo3", title: "Doing C" },
-    ],
-    editTodo: {},
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      listTodos: [
+        { id: "todo1", title: "Doing A" },
+        { id: "todo2", title: "Doing B" },
+        { id: "todo3", title: "Doing C" },
+      ],
+      editTodo: {},
+    };
+  }
+  // state = {
+  //   listTodos: [
+  //     { id: "todo1", title: "Doing A" },
+  //     { id: "todo2", title: "Doing B" },
+  //     { id: "todo3", title: "Doing C" },
+  //   ],
+  //   editTodo: {},
+  // };
 
   addNewTodo = (todo) => {
     this.setState({
@@ -55,6 +66,7 @@ class ListTodo extends React.Component {
       editTodo: editTodoCopy,
     });
   };
+
   render() {
     let { listTodos, editTodo } = this.state;
     let isEmptyObj = Object.keys(editTodo).length === 0;
